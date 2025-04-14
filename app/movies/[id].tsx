@@ -66,12 +66,12 @@ const MovieDetails= () => {
 
             </View>
 
-            <MovieInfo lable='Overview' value={movie?.overview}/>
+            <MovieInfo lable='Overview' value={movie?.overview ?? null}/>
             <MovieInfo lable='Genres' value={movie?.genres?.map((g)=>g.name).join('-')|| 'N/A'}/>
 
           <View className='flex flex-row justify-between w-1/2'>
-          <MovieInfo lable='Budget' value={`$${movie?.budget/ 1_000_000} million`}/>
-          <MovieInfo lable='Revenue' value={`$${Math.round(movie?.revenue)/1_000_000}`}/>
+          <MovieInfo lable='Budget' value={`$${(movie?.budget ?? 0) / 1_000_000} million`}/>
+          <MovieInfo lable='Revenue' value={`$${Math.round(movie?.revenue ?? 0)/1_000_000}`}/>
 
           </View>
 
